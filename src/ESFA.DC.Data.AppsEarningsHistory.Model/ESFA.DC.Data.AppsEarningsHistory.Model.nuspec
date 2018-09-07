@@ -1,0 +1,15 @@
+﻿<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>ESFA.DC.Data.AppsEarningsHistory.Model</id>
+    <version>0.1.0</version>
+    <authors>DC</authors>
+    <owners>ESFA</owners>
+    <licenseUrl>https://github.com/SkillsFundingAgency/DC-Data-ApprenticeshipsEarningsHistory/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/SkillsFundingAgency/DC-Data-ApprenticeshipsEarningsHistory</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>ApprenticeshipsEarningsHistory Entity Framework Model Project.</description>
+    <copyright>Copyright 2018</copyright>
+    <tags>ILR ApprenticeshipsEarningsHistory Data Database Model</tags>
+  </metadata>
+</package>
