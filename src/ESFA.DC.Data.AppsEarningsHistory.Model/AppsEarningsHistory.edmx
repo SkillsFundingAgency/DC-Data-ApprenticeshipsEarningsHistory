@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ESFA.DC.Data.ApprenticeshipsEarningsHistory.Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AppsEarningsHistory">
+          <Key>
+            <PropertyRef Name="AppIdentifier" />
+            <PropertyRef Name="CollectionYear" />
+            <PropertyRef Name="CollectionReturnCode" />
+            <PropertyRef Name="LatestInYear" />
+            <PropertyRef Name="LearnRefNumber" />
+            <PropertyRef Name="UKPRN" />
+          </Key>
+          <Property Name="AppIdentifier" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AppProgCompletedInTheYearInput" Type="bit" />
+          <Property Name="BalancingProgAimPaymentsInTheYear" Type="decimal" Precision="12" Scale="5" />
+          <Property Name="CollectionYear" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="CollectionReturnCode" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="CompletionProgaimPaymentsInTheYear" Type="decimal" Precision="12" Scale="5" />
+          <Property Name="DaysInYear" Type="int" />
+          <Property Name="FworkCode" Type="int" />
+          <Property Name="HistoricEffectiveTNPStartDateInput" Type="date" />
+          <Property Name="HistoricLearner1618StartInput" Type="bit" />
+          <Property Name="HistoricTotal1618UpliftPaymentsInTheYearInput" Type="decimal" Precision="12" Scale="5" />
+          <Property Name="HistoricTNP1Input" Type="decimal" Precision="12" Scale="5" />
+          <Property Name="HistoricTNP2Input" Type="decimal" Precision="12" Scale="5" />
+          <Property Name="HistoricTNP3Input" Type="decimal" Precision="12" Scale="5" />
+          <Property Name="HistoricTNP4Input" Type="decimal" Precision="12" Scale="5" />
+          <Property Name="HistoricVirtualTNP3EndOfTheYearInput" Type="decimal" Precision="12" Scale="5" />
+          <Property Name="HistoricVirtualTNP4EndOfTheYearInput" Type="decimal" Precision="12" Scale="5" />
+          <Property Name="LatestInYear" Type="bit" Nullable="false" />
+          <Property Name="LearnRefNumber" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="OnProgProgAimPaymentsInTheYear" Type="decimal" Precision="12" Scale="5" />
+          <Property Name="ProgrammeStartDateIgnorePathway" Type="date" />
+          <Property Name="ProgrammeStartDateMatchPathway" Type="date" />
+          <Property Name="ProgType" Type="int" />
+          <Property Name="PwayCode" Type="int" />
+          <Property Name="STDCode" Type="int" />
+          <Property Name="TotalProgAimPaymentsInTheYear" Type="decimal" Precision="12" Scale="5" />
+          <Property Name="UptoEndDate" Type="date" />
+          <Property Name="UKPRN" Type="int" Nullable="false" />
+          <Property Name="ULN" Type="bigint" Nullable="false" />
+          <Property Name="HistoricEmpIdEndWithinYear" Type="int" />
+          <Property Name="HistoricEmpIdStartWithinYear" Type="int" />
+          <Property Name="HistoricPMRAmount" Type="decimal" Precision="12" Scale="5" />
+          <Property Name="HistoricLearnDelProgEarliestACT2DateInput" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ApprenticeshipsEarningsHistory.dbo.AppsEarningsHistoryVersion' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AppsEarningsHistoryVersion">
+          <Key>
+            <PropertyRef Name="Version" />
+            <PropertyRef Name="Date" />
+          </Key>
+          <Property Name="Version" Type="int" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ESFADCDataApprenticeshipsEarningsHistoryModelStoreContainer">
+          <EntitySet Name="AppsEarningsHistory" EntityType="Self.AppsEarningsHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AppsEarningsHistoryVersion" EntityType="Self.AppsEarningsHistoryVersion" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AppsEarningsHistoryVersion].[Version] AS [Version], 
+    [AppsEarningsHistoryVersion].[Date] AS [Date]
+    FROM [dbo].[AppsEarningsHistoryVersion] AS [AppsEarningsHistoryVersion]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ESFA.DC.Data.ApprenticeshipsEarningsHistory.Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AppsEarningsHistory">
+          <Key>
+            <PropertyRef Name="AppIdentifier" />
+            <PropertyRef Name="CollectionYear" />
+            <PropertyRef Name="CollectionReturnCode" />
+            <PropertyRef Name="LatestInYear" />
+            <PropertyRef Name="LearnRefNumber" />
+            <PropertyRef Name="UKPRN" />
+          </Key>
+          <Property Name="AppIdentifier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AppProgCompletedInTheYearInput" Type="Boolean" />
+          <Property Name="BalancingProgAimPaymentsInTheYear" Type="Decimal" Precision="12" Scale="5" />
+          <Property Name="CollectionYear" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CollectionReturnCode" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CompletionProgaimPaymentsInTheYear" Type="Decimal" Precision="12" Scale="5" />
+          <Property Name="DaysInYear" Type="Int32" />
+          <Property Name="FworkCode" Type="Int32" />
+          <Property Name="HistoricEffectiveTNPStartDateInput" Type="DateTime" Precision="0" />
+          <Property Name="HistoricLearner1618StartInput" Type="Boolean" />
+          <Property Name="HistoricTotal1618UpliftPaymentsInTheYearInput" Type="Decimal" Precision="12" Scale="5" />
+          <Property Name="HistoricTNP1Input" Type="Decimal" Precision="12" Scale="5" />
+          <Property Name="HistoricTNP2Input" Type="Decimal" Precision="12" Scale="5" />
+          <Property Name="HistoricTNP3Input" Type="Decimal" Precision="12" Scale="5" />
+          <Property Name="HistoricTNP4Input" Type="Decimal" Precision="12" Scale="5" />
+          <Property Name="HistoricVirtualTNP3EndOfTheYearInput" Type="Decimal" Precision="12" Scale="5" />
+          <Property Name="HistoricVirtualTNP4EndOfTheYearInput" Type="Decimal" Precision="12" Scale="5" />
+          <Property Name="LatestInYear" Type="Boolean" Nullable="false" />
+          <Property Name="LearnRefNumber" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OnProgProgAimPaymentsInTheYear" Type="Decimal" Precision="12" Scale="5" />
+          <Property Name="ProgrammeStartDateIgnorePathway" Type="DateTime" Precision="0" />
+          <Property Name="ProgrammeStartDateMatchPathway" Type="DateTime" Precision="0" />
+          <Property Name="ProgType" Type="Int32" />
+          <Property Name="PwayCode" Type="Int32" />
+          <Property Name="STDCode" Type="Int32" />
+          <Property Name="TotalProgAimPaymentsInTheYear" Type="Decimal" Precision="12" Scale="5" />
+          <Property Name="UptoEndDate" Type="DateTime" Precision="0" />
+          <Property Name="UKPRN" Type="Int32" Nullable="false" />
+          <Property Name="ULN" Type="Int64" Nullable="false" />
+          <Property Name="HistoricEmpIdEndWithinYear" Type="Int32" />
+          <Property Name="HistoricEmpIdStartWithinYear" Type="Int32" />
+          <Property Name="HistoricPMRAmount" Type="Decimal" Precision="12" Scale="5" />
+          <Property Name="HistoricLearnDelProgEarliestACT2DateInput" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="AppsEarningsHistoryVersion">
+          <Key>
+            <PropertyRef Name="Version" />
+            <PropertyRef Name="Date" />
+          </Key>
+          <Property Name="Version" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityContainer Name="ApprenticeshipsEarningsHistory" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AppsEarningsHistories" EntityType="Self.AppsEarningsHistory" />
+          <EntitySet Name="AppsEarningsHistoryVersions" EntityType="Self.AppsEarningsHistoryVersion" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ESFADCDataApprenticeshipsEarningsHistoryModelStoreContainer" CdmEntityContainer="ApprenticeshipsEarningsHistory">
+          <EntitySetMapping Name="AppsEarningsHistories">
+            <EntityTypeMapping TypeName="ESFA.DC.Data.ApprenticeshipsEarningsHistory.Model.AppsEarningsHistory">
+              <MappingFragment StoreEntitySet="AppsEarningsHistory">
+                <ScalarProperty Name="AppIdentifier" ColumnName="AppIdentifier" />
+                <ScalarProperty Name="AppProgCompletedInTheYearInput" ColumnName="AppProgCompletedInTheYearInput" />
+                <ScalarProperty Name="BalancingProgAimPaymentsInTheYear" ColumnName="BalancingProgAimPaymentsInTheYear" />
+                <ScalarProperty Name="CollectionYear" ColumnName="CollectionYear" />
+                <ScalarProperty Name="CollectionReturnCode" ColumnName="CollectionReturnCode" />
+                <ScalarProperty Name="CompletionProgaimPaymentsInTheYear" ColumnName="CompletionProgaimPaymentsInTheYear" />
+                <ScalarProperty Name="DaysInYear" ColumnName="DaysInYear" />
+                <ScalarProperty Name="FworkCode" ColumnName="FworkCode" />
+                <ScalarProperty Name="HistoricEffectiveTNPStartDateInput" ColumnName="HistoricEffectiveTNPStartDateInput" />
+                <ScalarProperty Name="HistoricLearner1618StartInput" ColumnName="HistoricLearner1618StartInput" />
+                <ScalarProperty Name="HistoricTotal1618UpliftPaymentsInTheYearInput" ColumnName="HistoricTotal1618UpliftPaymentsInTheYearInput" />
+                <ScalarProperty Name="HistoricTNP1Input" ColumnName="HistoricTNP1Input" />
+                <ScalarProperty Name="HistoricTNP2Input" ColumnName="HistoricTNP2Input" />
+                <ScalarProperty Name="HistoricTNP3Input" ColumnName="HistoricTNP3Input" />
+                <ScalarProperty Name="HistoricTNP4Input" ColumnName="HistoricTNP4Input" />
+                <ScalarProperty Name="HistoricVirtualTNP3EndOfTheYearInput" ColumnName="HistoricVirtualTNP3EndOfTheYearInput" />
+                <ScalarProperty Name="HistoricVirtualTNP4EndOfTheYearInput" ColumnName="HistoricVirtualTNP4EndOfTheYearInput" />
+                <ScalarProperty Name="LatestInYear" ColumnName="LatestInYear" />
+                <ScalarProperty Name="LearnRefNumber" ColumnName="LearnRefNumber" />
+                <ScalarProperty Name="OnProgProgAimPaymentsInTheYear" ColumnName="OnProgProgAimPaymentsInTheYear" />
+                <ScalarProperty Name="ProgrammeStartDateIgnorePathway" ColumnName="ProgrammeStartDateIgnorePathway" />
+                <ScalarProperty Name="ProgrammeStartDateMatchPathway" ColumnName="ProgrammeStartDateMatchPathway" />
+                <ScalarProperty Name="ProgType" ColumnName="ProgType" />
+                <ScalarProperty Name="PwayCode" ColumnName="PwayCode" />
+                <ScalarProperty Name="STDCode" ColumnName="STDCode" />
+                <ScalarProperty Name="TotalProgAimPaymentsInTheYear" ColumnName="TotalProgAimPaymentsInTheYear" />
+                <ScalarProperty Name="UptoEndDate" ColumnName="UptoEndDate" />
+                <ScalarProperty Name="UKPRN" ColumnName="UKPRN" />
+                <ScalarProperty Name="ULN" ColumnName="ULN" />
+                <ScalarProperty Name="HistoricEmpIdEndWithinYear" ColumnName="HistoricEmpIdEndWithinYear" />
+                <ScalarProperty Name="HistoricEmpIdStartWithinYear" ColumnName="HistoricEmpIdStartWithinYear" />
+                <ScalarProperty Name="HistoricPMRAmount" ColumnName="HistoricPMRAmount" />
+                <ScalarProperty Name="HistoricLearnDelProgEarliestACT2DateInput" ColumnName="HistoricLearnDelProgEarliestACT2DateInput" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AppsEarningsHistoryVersions">
+            <EntityTypeMapping TypeName="ESFA.DC.Data.ApprenticeshipsEarningsHistory.Model.AppsEarningsHistoryVersion">
+              <MappingFragment StoreEntitySet="AppsEarningsHistoryVersion">
+                <ScalarProperty Name="Version" ColumnName="Version" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
