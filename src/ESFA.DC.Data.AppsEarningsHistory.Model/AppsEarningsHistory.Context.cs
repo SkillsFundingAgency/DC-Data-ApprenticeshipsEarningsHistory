@@ -12,8 +12,9 @@ namespace ESFA.DC.Data.AppsEarningsHistory.Model
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
-    public partial class ApprenticeshipsEarningsHistory : DbContext
+    using ESFA.DC.Data.AppsEarningsHistory.Model.Interfaces;
+
+    public partial class ApprenticeshipsEarningsHistory : DbContext, IApprenticeshipsEarningsHistory
     {
         public ApprenticeshipsEarningsHistory()
             : base("name=ApprenticeshipsEarningsHistory")
