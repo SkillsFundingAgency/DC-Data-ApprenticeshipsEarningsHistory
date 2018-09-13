@@ -72,7 +72,7 @@
     <Compile Include="AppsEarningsHistoryVersion.cs">
       <DependentUpon>AppsEarningsHistory.tt</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\IAppsEarningsHistory.cs" />
+    <Compile Include="Interfaces\IApprenticeshipsEarningsHistory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
