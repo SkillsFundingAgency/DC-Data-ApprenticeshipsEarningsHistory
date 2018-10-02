@@ -10,7 +10,7 @@ Post-Deployment Script Template
 --------------------------------------------------------------------------------------
 */
 
-SET NOCOUNT ON ;
+SET NOCOUNT ON;
 GO
 
 RAISERROR('		  Clean Up not used objects',10,1) WITH NOWAIT;
@@ -64,12 +64,32 @@ AS
 
 GO
 
-GO
 RAISERROR('		   Update User Account Passwords',10,1) WITH NOWAIT;
 GO
-ALTER USER [AppsEarningsHistory_RO_User] WITH PASSWORD = N'$(ROUserPassword)';
-ALTER USER [AppsEarningsHistory_RW_User] WITH PASSWORD = N'$(RWUserPassword)';
-
+RAISERROR('			     RO User',10,1) WITH NOWAIT;
+ALTER USER AppEarnHistory_RO_User WITH PASSWORD = N'$(ROUserPassword)';
+RAISERROR('			     RW User',10,1) WITH NOWAIT;
+ALTER USER AppEarnHistory_RW_User WITH PASSWORD = N'$(RWUserPassword)';
 GO
+
+
+RAISERROR('		   Remove Old Objects',10,1) WITH NOWAIT;
+DROP USER IF EXISTS [AppsEarningsHistory_RO_User]
+GO
+DROP USER IF EXISTS [AppsEarningsHistory_RW_User]
+GO
+DROP TABLE IF EXISTS [Staging].[AppsEarningsHistoryStaged]
+GO
+DROP TABLE IF EXISTS [Staging].[AppsEarningsHistoryVersionStaged]
+GO
+DROP PROCEDURE IF EXISTS [Staging].[usp_Process_AppsEarningsHistory]
+GO
+DROP PROCEDURE IF EXISTS [Staging].[usp_RemovedProcessedRecords]
+GO
+DROP PROCEDURE IF EXISTS [Staging].[usp_Process]
+GO
+DROP SCHEMA IF EXISTS [Staging]
+GO
+
 RAISERROR('Completed',10,1) WITH NOWAIT;
 GO

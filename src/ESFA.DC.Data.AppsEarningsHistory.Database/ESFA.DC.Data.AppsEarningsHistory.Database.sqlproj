@@ -63,27 +63,16 @@
     <Folder Include="dbo\Tables\" />
     <Folder Include="dbo\Stored Procedures\" />
     <Folder Include="Security\" />
-    <Folder Include="Staging\Stored Procedures" />
-    <Folder Include="Staging" />
-    <Folder Include="Staging\Tables" />
-    <Folder Include="zzDeploymentProfiles" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\AppsEarningsHistoryVersion.sql" />
     <Build Include="dbo\Tables\AppsEarningsHistory.sql" />
     <Build Include="dbo\Stored Procedures\PrepareForNewData.sql" />
-    <Build Include="Security\AppsEarningsHistory_RO_User.sql" />
-    <Build Include="Security\AppsEarningsHistory_RW_User.sql" />
+    <Build Include="Security\AppEarnHistory_RO_User.sql" />
+    <Build Include="Security\AppEarnHistory_RW_User.sql" />
     <Build Include="Security\RoleMemberships.sql" />
-    <Build Include="Security\Staging.sql" />
-    <Build Include="Staging\Stored Procedures\usp_Process.sql" />
-    <Build Include="Staging\Stored Procedures\usp_Process_AppsEarningsHistory.sql" />
-    <Build Include="Staging\Stored Procedures\usp_RemovedProcessedRecords.sql" />
-    <Build Include="Staging\Tables\AppsEarningsHistoryVersionStaged.sql" />
-    <Build Include="Staging\Tables\AppsEarningsHistoryStaged.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="zzDeploymentProfiles\zz.Local.Dev.Version.publish.xml" />
+    <Build Include="Security\Role_DataProcessing.sql" />
+    <Build Include="Security\Role_DataViewer.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="zzz.Script.PostDeployment.sql" />
@@ -98,8 +87,7 @@
       <Value>$(SqlCmdVar__1)</Value>
     </SqlCmdVariable>
     <SqlCmdVariable Include="RELEASE_RELEASENAME">
-      <DefaultValue>
-      </DefaultValue>
+      <DefaultValue>From Local Machine</DefaultValue>
       <Value>$(SqlCmdVar__3)</Value>
     </SqlCmdVariable>
     <SqlCmdVariable Include="ROUserPassword">
