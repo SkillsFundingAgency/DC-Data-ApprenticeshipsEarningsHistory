@@ -67,28 +67,20 @@ GO
 RAISERROR('		   Update User Account Passwords',10,1) WITH NOWAIT;
 GO
 RAISERROR('			     RO User',10,1) WITH NOWAIT;
-ALTER USER AppEarnHistory_RO_User WITH PASSWORD = N'$(ROUserPassword)';
+ALTER USER [AppEarnHistory_RO_User] WITH PASSWORD = N'$(ROUserPassword)';
+GO
 RAISERROR('			     RW User',10,1) WITH NOWAIT;
-ALTER USER AppEarnHistory_RW_User WITH PASSWORD = N'$(RWUserPassword)';
+ALTER USER [AppEarnHistory_RW_User] WITH PASSWORD = N'$(RWUserPassword)';
 GO
+RAISERROR('			     DSCI User',10,1) WITH NOWAIT;
+ALTER USER [User_DSCI] WITH PASSWORD = N'$(DsciUserPassword)';
 
-
-RAISERROR('		   Remove Old Objects',10,1) WITH NOWAIT;
-DROP USER IF EXISTS [AppsEarningsHistory_RO_User]
 GO
-DROP USER IF EXISTS [AppsEarningsHistory_RW_User]
+ALTER ROLE [db_datareader] DROP MEMBER [AppEarnHistory_RO_User];
 GO
-DROP TABLE IF EXISTS [Staging].[AppsEarningsHistoryStaged]
+ALTER ROLE [db_datareader] DROP MEMBER [AppEarnHistory_RW_User];
 GO
-DROP TABLE IF EXISTS [Staging].[AppsEarningsHistoryVersionStaged]
-GO
-DROP PROCEDURE IF EXISTS [Staging].[usp_Process_AppsEarningsHistory]
-GO
-DROP PROCEDURE IF EXISTS [Staging].[usp_RemovedProcessedRecords]
-GO
-DROP PROCEDURE IF EXISTS [Staging].[usp_Process]
-GO
-DROP SCHEMA IF EXISTS [Staging]
+ALTER ROLE [db_datawriter] DROP MEMBER [AppEarnHistory_RW_User];
 GO
 
 RAISERROR('Completed',10,1) WITH NOWAIT;
