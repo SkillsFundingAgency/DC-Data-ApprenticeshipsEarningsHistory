@@ -25,6 +25,7 @@
     <TargetDatabaseSet>True</TargetDatabaseSet>
     <DefaultCollation>Latin1_General_CI_AS</DefaultCollation>
     <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <DacApplicationName>AppEarningsHistory</DacApplicationName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -63,6 +64,7 @@
     <Folder Include="dbo\Tables\" />
     <Folder Include="dbo\Stored Procedures\" />
     <Folder Include="Security\" />
+    <Folder Include="zzDeploymentProfiles\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\AppsEarningsHistoryVersion.sql" />
@@ -73,6 +75,8 @@
     <Build Include="Security\RoleMemberships.sql" />
     <Build Include="Security\Role_DataProcessing.sql" />
     <Build Include="Security\Role_DataViewer.sql" />
+    <Build Include="Security\User_DsciUser.sql" />
+    <Build Include="dbo\Stored Procedures\usp_DisplayDeploymentProperties.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="zzz.Script.PostDeployment.sql" />
@@ -86,6 +90,10 @@
       <DefaultValue>0.0.0</DefaultValue>
       <Value>$(SqlCmdVar__1)</Value>
     </SqlCmdVariable>
+    <SqlCmdVariable Include="DsciUserPassword">
+      <DefaultValue>NotUseLocally##</DefaultValue>
+      <Value>$(SqlCmdVar__6)</Value>
+    </SqlCmdVariable>
     <SqlCmdVariable Include="RELEASE_RELEASENAME">
       <DefaultValue>From Local Machine</DefaultValue>
       <Value>$(SqlCmdVar__3)</Value>
@@ -98,5 +106,8 @@
       <DefaultValue>NotUseLocally#</DefaultValue>
       <Value>$(SqlCmdVar__5)</Value>
     </SqlCmdVariable>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="zzDeploymentProfiles\zz.Local.Dev.Version.publish.xml" />
   </ItemGroup>
 </Project>
